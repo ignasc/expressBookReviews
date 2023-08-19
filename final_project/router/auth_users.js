@@ -5,6 +5,19 @@ const regd_users = express.Router();
 
 let users = [];
 
+const checkIfUserExists = (username) => {
+  let usersWithTheSameName = users.filter((user) => {
+    return user.username == username;
+  });
+
+  if(usersWithTheSameName.length > 0){
+    return true;
+  }else{
+    return false;
+  };
+
+};
+
 const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
 }
@@ -28,3 +41,4 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
 module.exports.authenticated = regd_users;
 module.exports.isValid = isValid;
 module.exports.users = users;
+module.exports.checkIfUserExists = checkIfUserExists;
