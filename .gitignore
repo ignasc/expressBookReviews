@@ -1,5 +1,7 @@
 # Distribution / packaging
 node_modules
-#project screenshot to submit for grading
+# Project screenshot to submit for grading
 screenshots
-
+# Other Files
+final_project/package-lock.json
+package-lock.json
