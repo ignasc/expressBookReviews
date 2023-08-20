@@ -1,7 +1,6 @@
 const express = require('express');
 let books = require("./booksdb.js");
 let isValid = require("./auth_users.js").isValid;
-let checkIfUserExists = require("./auth_users.js").checkIfUserExists;
 let users = require("./auth_users.js").users;
 const public_users = express.Router();
 
@@ -10,7 +9,7 @@ public_users.post("/register", (req,res) => {
   const password = req.body.password;
 
   if (username && password) {
-    if (!checkIfUserExists(username)) { 
+    if (!isValid(username)) { 
       users.push({"username":username,"password":password});
       return res.status(200).json({message: "User " + username + " has been successfully registred. Now you can login"});
     } else {
